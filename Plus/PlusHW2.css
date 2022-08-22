@@ -1,0 +1,154 @@
+body {
+  background: linear-gradient(
+    109.6deg,
+    rgb(20, 30, 48) 11.2%,
+    rgb(36, 59, 85) 91.1%
+  );
+  min-height: 83.8vh;
+}
+
+header {
+  font-family: "Albert Sans", sans-serif;
+  color: #969696;
+}
+
+a,
+.temp-unit,
+a:hover {
+  text-decoration: none;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 20px;
+  color: #969696;
+}
+
+a:hover {
+  color: #d2d2d2;
+}
+
+a:focus {
+  color: #d2d2d2;
+  font-weight: 700;
+}
+
+#locationForm {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 23px;
+}
+
+#locationInput {
+  background-color: #090e16;
+  color: #d2d2d2;
+  box-shadow: none;
+  border-color: #d2d2d2;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#current {
+  position: absolute;
+  top: 30px;
+  left: 302px;
+}
+
+.container {
+  border: 1px solid #969696;
+  border-radius: 10px;
+  background-color: #090e16;
+  max-width: 700px;
+  margin-top: 150px;
+  position: relative;
+}
+
+.searchBtn {
+  color: #969696;
+  background-color: transparent;
+  border-color: #d2d2d2;
+  font-family: "Albert Sans", sans-serif;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.searchBtn:hover {
+  color: #0d1521;
+  background-color: #d2d2d2;
+  border-color: #d2d2d2;
+}
+
+.location {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 45px;
+  font-weight: 400;
+}
+
+.date-time {
+  list-style: none;
+  text-align: right;
+  position: absolute;
+  right: 35px;
+  top: 22%;
+}
+
+.main-temp {
+  color: #d2d2d2;
+  font-size: 80px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.main-temp-text {
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 300;
+  letter-spacing: 18px;
+  padding-left: 20px;
+}
+
+.temp-unit {
+  position: absolute;
+  top: 36%;
+  left: 280px;
+}
+
+.side3 {
+  list-style: none;
+  font-family: "Albert Sans", sans-serif;
+  color: #969696;
+  font-size: 12.5px;
+  position: absolute;
+  top: 42%;
+  left: 320px;
+}
+
+.container-sub-temp {
+  margin-bottom: 12px;
+}
+
+.body-sub-temp {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #969696;
+  font-family: "Albert Sans", sans-serif;
+}
+
+.container-sub-temp:hover,
+.body-sub-temp:hover {
+  background-color: #0d1521;
+  border-color: #0d1521;
+  border-radius: 10px;
+}
+
+.emote {
+  font-size: 60px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #d2d2d2;
+}
+
+.sub-temp {
+  letter-spacing: 5px;
+  padding-left: 14px;
+}

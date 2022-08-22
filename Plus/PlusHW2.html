@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Weather</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/0bdf790b34.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="PlusHW2.css" />
+  </head>
+
+  <body>
+
+   <div class="container">
+
+ <form id="locationForm">
+  <input type="text" id="locationInput"/>
+  <input type="submit" class="searchBtn" id="locationSubmit" value="search"/>
+ </form>
+
+ <button class="searchBtn" id="current">current location</button>
+      
+    <header>
+      <div class="row">
+        <div class="col">
+        <span class="location" id="locationName"></span>
+        </div>
+
+       <div class="row">
+        <div class="col">
+        <ul class="date-time">
+          <li id="date">
+            June 15, 2022
+          </li>
+          <li id="time">
+            Friday 8:00 PM
+          </li>
+        </ul>
+        </div>
+        </div>
+      </header>
+      
+
+      <section>
+        <i class="fa-solid fa-cloud-showers-heavy main-temp">
+          <span class="main-temp-text" id="mainTemp"></span>
+        </i>
+
+        <span class="temp-unit">
+        <a href="#" id="cel">°C </a>|<a href="#" id="far"> °F</a>
+        </span>
+      
+      <div class="d-inline-block">
+        <ul class="side3">
+          <li>Precipitation: <span id="presipitaion"></span></li>
+          <li>Humidity: <span id="humidity"></span>%</li>
+          <li>Wind: <span id="wind"></span>km/h</li>
+        </ul>
+      </div>
+      </section>
+
+      <footer>
+        <div class="row">
+
+        <div class="col">
+        <div class="container-sub-temp">
+          <div class= "body-sub-temp">
+            Saturday
+          </br> <i class="fa-solid fa-cloud-sun-rain emote"></i>
+          </br> <span class="sub-temp">12°</span>
+          </div>
+        </div>
+        </div>
+
+        <div class="col">
+        <div class="container-sub-temp">
+          <div class= "body-sub-temp">
+            Sunday
+          </br> <i class="fa-solid fa-cloud-rain emote"></i>
+          </br> <span class="sub-temp">11°</span>
+          </div>
+        </div>
+        </div>
+
+        <div class="col">
+        <div class="container-sub-temp">
+          <div class= "body-sub-temp">
+            Monday
+          </br> <i class="fa-solid fa-cloud-sun emote"></i>
+          </br> <span class="sub-temp">17°</span>
+          </div>
+        </div>
+        </div>
+
+        <div class="col">
+        <div class="container-sub-temp">
+          <div class= "body-sub-temp">
+            Tuesday
+          </br> <i class="fa-solid fa-cloud emote"></i>
+          </br> <span class="sub-temp">14°</span>
+          </div>
+        </div>
+        </div>
+
+        <div class="col">
+          <div class="container-sub-temp">
+            <div class= "body-sub-temp">
+              Wednesday
+            </br> <i class="fa-solid fa-sun emote"></i>
+            </br> <span class="sub-temp">19°</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      
+      </footer>
+    </div>
+
+    <script src="PlusHW5.js"></script>
+  </body>
+</html>
