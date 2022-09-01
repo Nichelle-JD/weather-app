@@ -152,3 +152,14 @@ a:focus {
   letter-spacing: 5px;
   padding-left: 14px;
 }
+
+.source {
+  font-family: "Albert Sans", sans-serif;
+  color: #969696;
+  font-size: 14px;
+  padding-left: 310px;
+}
+
+.source:hover {
+  font-size: 14px;
+}
