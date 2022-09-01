@@ -1,10 +1,9 @@
-import apiKey from "./key";
-
 function loc(event) {
   event.preventDefault();
   let locationName = document.querySelector("#locationName");
   let locationInput = document.querySelector("#locationInput");
   locationName.innerHTML = `${locationInput.value.toUpperCase()}`;
+  let apiKey = "8a4f7aeaa0cfd5a41887f2b4b5db391c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput.value}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showTemperature);
