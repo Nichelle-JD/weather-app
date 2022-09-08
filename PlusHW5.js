@@ -9,10 +9,17 @@ function loc(event) {
   axios.get(apiUrl).then(showTemperature);
   axios.get(apiUrl).then(showHumidity);
   axios.get(apiUrl).then(showWind);
+  axios.get(apiUrl).then(showDescription);
 }
 
 let locationSubmit = document.querySelector("#locationSubmit");
 locationSubmit.addEventListener("click", loc);
+
+function showDescription(response) {
+  let description = response.data.weather[0].description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = description;
+}
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
