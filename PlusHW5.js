@@ -91,6 +91,9 @@ function timeNow(date) {
   hour = hour - 12;
   let ampm = hour >= 12 ? `PM` : `AM`;
   let minute = date.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
 
   return `${day} ${hour}:${minute} ${ampm}`;
 }
