@@ -54,6 +54,7 @@ a:focus {
 
 #description {
   margin-left: 25px;
+  text-transform: capitalize;
 }
 
 .container {

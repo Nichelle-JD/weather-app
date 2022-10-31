@@ -3,6 +3,7 @@ function loc(event) {
   let locationName = document.querySelector("#locationName");
   let locationInput = document.querySelector("#locationInput");
   locationName.innerHTML = `${locationInput.value.toUpperCase()}`;
+
   let apiKey = "8a4f7aeaa0cfd5a41887f2b4b5db391c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput.value}&appid=${apiKey}&units=metric`;
 
@@ -15,40 +16,13 @@ function loc(event) {
 let locationSubmit = document.querySelector("#locationSubmit");
 locationSubmit.addEventListener("click", loc);
 
-function showDescription(response) {
-  let description = response.data.weather[0].description;
-  let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = description;
-}
-
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#mainTemp");
-  temperatureElement.innerHTML = temperature;
-}
-
-// function showCurrentTemperature(response) {
-//   let temperature = Math.round(response.data.main.temp);
-
-//   let mainTemp = document.querySelector("#mainTemp");
-//   mainTemp.innerHTML = `${temperature}`;
-// }
-
-// function showPosition(position) {
-//   let lat = position.coords.latitude;
-//   let lon = position.coords.longitude;
-//   let units = "metric";
-//   let apiKey = "8a4f7aeaa0cfd5a41887f2b4b5db391c";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-
-//   axios.get(apiUrl).then(showCurrentTemperature);
-// }
-// navigator.geolocation.getCurrentPosition(showPosition);
-
-function showHumidity(response) {
-  let humidity = Math.round(response.data.main.humidity);
+  let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = humidity;
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
 }
 
 function showWind(response) {
