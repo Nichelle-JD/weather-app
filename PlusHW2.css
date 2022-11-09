@@ -96,19 +96,13 @@ a:focus {
   top: 22%;
 }
 
-.main-temp {
+.main-temp-text {
+  font-family: "Albert Sans", sans-serif;
   color: #d2d2d2;
   font-size: 80px;
   margin-top: 10px;
   margin-left: 20px;
   margin-bottom: 30px;
-}
-
-.main-temp-text {
-  font-family: "Albert Sans", sans-serif;
-  font-weight: 300;
-  letter-spacing: 18px;
-  padding-left: 20px;
 }
 
 .temp-unit {

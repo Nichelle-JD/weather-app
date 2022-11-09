@@ -21,124 +21,137 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="PlusHW2.css" />
   </head>
 
   <body>
+    <div class="container">
+      <form id="locationForm">
+        <input type="text" id="locationInput" />
+        <input
+          type="submit"
+          class="searchBtn"
+          id="locationSubmit"
+          value="search"
+        />
+      </form>
 
-   <div class="container">
+      <button class="searchBtn" id="current">current location</button>
 
- <form id="locationForm">
-  <input type="text" id="locationInput"/>
-  <input type="submit" class="searchBtn" id="locationSubmit" value="search"/>
- </form>
+      <header>
+        <div class="row">
+          <div class="col">
+            <span class="location" id="locationName"></span>
+          </div>
 
- <button class="searchBtn" id="current">current location</button>
-      
-    <header>
-      <div class="row">
-        <div class="col">
-        <span class="location" id="locationName"></span>
-        </div>
-
-       <div class="row">
-        <div class="col">
-        <ul class="date-time">
-          <li id="date">
-            June 15, 2022
-          </li>
-          <li id="time">
-            Friday 8:00 PM
-          </li>
-        </ul>
-        </div>
+          <div class="row">
+            <div class="col">
+              <ul class="date-time">
+                <li id="date">June 15, 2022</li>
+                <li id="time">Friday 8:00 PM</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </header>
 
       <div id="description"></div>
-      
 
       <section>
-        <i class="fa-solid fa-cloud-showers-heavy main-temp">
-          <span class="main-temp-text" id="mainTemp"></span>
-        </i>
+        <img
+          src="http://openweathermap.org/img/wn/10d@2x.png"
+          alt="clear"
+          id="icon"
+        />
+        <span class="main-temp-text" id="mainTemp"></span>
 
         <span class="temp-unit">
-        <a href="#" id="cel">°C </a>|<a href="#" id="far"> °F</a>
+          <a href="#" id="cel">°C </a>|<a href="#" id="far"> °F</a>
         </span>
-      
-      <div class="d-inline-block">
-        <ul class="side3">
-          <li>Humidity: <span id="humidity"></span>%</li>
-          <li>Wind: <span id="wind"></span>km/h</li>
-        </ul>
-      </div>
+
+        <div class="d-inline-block">
+          <ul class="side3">
+            <li>Humidity: <span id="humidity"></span>%</li>
+            <li>Wind: <span id="wind"></span>km/h</li>
+          </ul>
+        </div>
       </section>
 
       <footer>
         <div class="row">
-
-        <div class="col">
-        <div class="container-sub-temp">
-          <div class= "body-sub-temp">
-            Saturday
-          </br> <i class="fa-solid fa-cloud-sun-rain emote"></i>
-          </br> <span class="sub-temp">12°</span>
+          <div class="col">
+            <div class="container-sub-temp">
+              <div class="body-sub-temp">
+                Saturday
+                <br />
+                <i class="fa-solid fa-cloud-sun-rain emote"></i> <br />
+                <span class="sub-temp">12°</span>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
 
-        <div class="col">
-        <div class="container-sub-temp">
-          <div class= "body-sub-temp">
-            Sunday
-          </br> <i class="fa-solid fa-cloud-rain emote"></i>
-          </br> <span class="sub-temp">11°</span>
+          <div class="col">
+            <div class="container-sub-temp">
+              <div class="body-sub-temp">
+                Sunday
+                <br />
+                <i class="fa-solid fa-cloud-rain emote"></i> <br />
+                <span class="sub-temp">11°</span>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
 
-        <div class="col">
-        <div class="container-sub-temp">
-          <div class= "body-sub-temp">
-            Monday
-          </br> <i class="fa-solid fa-cloud-sun emote"></i>
-          </br> <span class="sub-temp">17°</span>
+          <div class="col">
+            <div class="container-sub-temp">
+              <div class="body-sub-temp">
+                Monday
+                <br />
+                <i class="fa-solid fa-cloud-sun emote"></i> <br />
+                <span class="sub-temp">17°</span>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
 
-        <div class="col">
-        <div class="container-sub-temp">
-          <div class= "body-sub-temp">
-            Tuesday
-          </br> <i class="fa-solid fa-cloud emote"></i>
-          </br> <span class="sub-temp">14°</span>
+          <div class="col">
+            <div class="container-sub-temp">
+              <div class="body-sub-temp">
+                Tuesday
+                <br />
+                <i class="fa-solid fa-cloud emote"></i> <br />
+                <span class="sub-temp">14°</span>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
 
-        <div class="col">
-          <div class="container-sub-temp">
-            <div class= "body-sub-temp">
-              Wednesday
-            </br> <i class="fa-solid fa-sun emote"></i>
-            </br> <span class="sub-temp">19°</span>
+          <div class="col">
+            <div class="container-sub-temp">
+              <div class="body-sub-temp">
+                Wednesday
+                <br />
+                <i class="fa-solid fa-sun emote"></i> <br />
+                <span class="sub-temp">19°</span>
+              </div>
             </div>
           </div>
         </div>
-        </div>
-      
       </footer>
     </div>
 
     <div class="source">
-    <a href="https://github.com/Nichelle-JD/weather-app" target="_blank" class="source">Open-source code</a>
-    <span>by Nichelle JD</span>
+      <a
+        href="https://github.com/Nichelle-JD/weather-app"
+        target="_blank"
+        class="source"
+        >Open-source code</a
+      >
+      <span>by Nichelle JD</span>
     </div>
 
     <script src="PlusHW5.js"></script>

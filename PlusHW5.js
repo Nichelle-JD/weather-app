@@ -20,16 +20,18 @@ function showTemperature(response) {
   let temperatureElement = document.querySelector("#mainTemp");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
-}
-
-function showWind(response) {
-  let wind = response.data.wind.speed;
-  let windSpeed = Math.round(wind * 3.6);
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = windSpeed;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function dateNow(date) {
@@ -73,7 +75,7 @@ function timeNow(date) {
   if (hour < 10) {
     hour = `0${hour}`;
   }
-  let ampm = hour >= 12 ? `PM` : `AM`;
+  let ampm = hour >= 12 ? `AM` : `PM`;
   let minute = date.getMinutes();
   if (minute < 10) {
     minute = `0${minute}`;
