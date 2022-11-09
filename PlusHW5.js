@@ -23,7 +23,9 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celTemp = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celTemp);
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -85,3 +87,24 @@ function timeNow(date) {
 }
 
 document.querySelector("#time").innerHTML = timeNow(new Date());
+
+function displayFarTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector(".main-temp-text");
+  let farTemp = (celTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(farTemp);
+}
+
+let celTemp = null;
+
+let farlink = document.querySelector("#far");
+farlink.addEventListener("click", displayFarTemp);
+
+function displayCelTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector(".main-temp-text");
+  tempElement.innerHTML = Math.round(celTemp);
+}
+
+let cellink = document.querySelector("#cel");
+cellink.addEventListener("click", displayCelTemp);
