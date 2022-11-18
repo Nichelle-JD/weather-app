@@ -108,3 +108,35 @@ function displayCelTemp(event) {
 
 let cellink = document.querySelector("#cel");
 cellink.addEventListener("click", displayCelTemp);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+            <div class="container-sub-temp">
+              <div class="body-sub-day">
+                ${day}
+                <br/>
+                 <img
+                   src="http://openweathermap.org/img/wn/50d@2x.png"
+                   alt="clear"
+                    id="icon"
+                  />
+                  <br/>
+                  <div class="sub-temp">
+                    <span class="sub-temp-min">12°</span>
+                    <span class="sub-temp-max">18°</span>
+                  </div>
+              </div>
+            </div>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();

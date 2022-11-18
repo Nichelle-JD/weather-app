@@ -125,7 +125,7 @@ a:focus {
   margin-bottom: 12px;
 }
 
-.body-sub-temp {
+.body-sub-day {
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -150,6 +150,7 @@ a:focus {
 .sub-temp {
   letter-spacing: 5px;
   padding-left: 14px;
+  color: #969696;
 }
 
 .source {
