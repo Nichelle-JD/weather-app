@@ -1,4 +1,4 @@
-function loc(event) {
+async function loc(event) {
   event.preventDefault();
   let locationName = document.querySelector("#locationName");
   let locationInput = document.querySelector("#locationInput");
@@ -7,7 +7,14 @@ function loc(event) {
   let apiKey = "8a4f7aeaa0cfd5a41887f2b4b5db391c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput.value}&appid=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(showTemperature);
+  // let response = await axios.get(apiUrl).then(showTemperature);
+  let response = await axios.get(apiUrl);
+  showTemperature(response);
+
+  let apiKey2 = "1coea2t66a1bb8c57e354548c0d15a6f";
+  let apiURL2 = `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coord.lon}&lat=${response.data.coord.lat}&key=${apiKey2}&units=metric`;
+
+  axios.get(apiURL2).then(displayForecast);
 }
 
 let locationSubmit = document.querySelector("#locationSubmit");
@@ -32,7 +39,7 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getForecast(response.data.coord);
+  // getForecast(response.data.coord);
 }
 
 function dateNow(date) {
@@ -109,26 +116,45 @@ let cellink = document.querySelector("#cel");
 cellink.addEventListener("click", displayCelTemp);
 
 function displayForecast(response) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  console.log(response);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay) {
+  forecast.forEach(function (forecastDay, index) {
+    if (index == 0 || index > 5) return;
+
+    let dayNumber = new Date(forecastDay.time * 1000).getDay();
+    let dayName = days[dayNumber];
+    console.log(dayNumber);
     forecastHTML =
       forecastHTML +
       `<div class="col">
             <div class="container-sub-temp">
               <div class="body-sub-day">
-                ${forecastDay.dt}
+             ${dayName}
                 <br/>
                  <img
-                   src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+                   src="${forecastDay.condition.icon_url}"
                    alt="clear"
                     id="icon"
                   />
                   <br/>
                   <div class="sub-temp">
-                    <span class="sub-temp-min">${forecastDay.temp.min}°</span>
-                    <span class="sub-temp-max">${forecastDay.temp.max}°</span>
+                    <span class="sub-temp-min">${Math.round(
+                      forecastDay.temperature.minimum
+                    )}°</span>
+                    <span class="sub-temp-max">${Math.round(
+                      forecastDay.temperature.maximum
+                    )}°</span>
                   </div>
               </div>
             </div>
@@ -138,9 +164,9 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function getForecast(coordinates) {
-  let apiKey = "1coea2t66a1bb8c57e354548c0d15a6f";
-  let apiURL = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`;
+// function getForecast(coordinates) {
+//   let apiKey = "1coea2t66a1bb8c57e354548c0d15a6f";
+//   let apiURL = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`;
 
-  axios.get(apiURL).then(displayForecast);
-}
+//   axios.get(apiURL).then(displayForecast);
+// }
