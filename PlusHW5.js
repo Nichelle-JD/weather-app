@@ -8,9 +8,6 @@ function loc(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput.value}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showTemperature);
-  axios.get(apiUrl).then(showHumidity);
-  axios.get(apiUrl).then(showWind);
-  axios.get(apiUrl).then(showDescription);
 }
 
 let locationSubmit = document.querySelector("#locationSubmit");
@@ -34,6 +31,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function dateNow(date) {
@@ -109,27 +108,27 @@ function displayCelTemp(event) {
 let cellink = document.querySelector("#cel");
 cellink.addEventListener("click", displayCelTemp);
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col">
             <div class="container-sub-temp">
               <div class="body-sub-day">
-                ${day}
+                ${forecastDay.dt}
                 <br/>
                  <img
-                   src="http://openweathermap.org/img/wn/50d@2x.png"
+                   src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                    alt="clear"
                     id="icon"
                   />
                   <br/>
                   <div class="sub-temp">
-                    <span class="sub-temp-min">12°</span>
-                    <span class="sub-temp-max">18°</span>
+                    <span class="sub-temp-min">${forecastDay.temp.min}°</span>
+                    <span class="sub-temp-max">${forecastDay.temp.max}°</span>
                   </div>
               </div>
             </div>
@@ -139,4 +138,9 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
-displayForecast();
+function getForecast(coordinates) {
+  let apiKey = "1coea2t66a1bb8c57e354548c0d15a6f";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(displayForecast);
+}
